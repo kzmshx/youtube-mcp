@@ -22,4 +22,4 @@ typecheck: ## Run type checker
 
 .PHONY: dev
 dev: ## Launch MCP Inspector for interactive debugging
-	npx @modelcontextprotocol/inspector uv run youtube-mcp
+	npx @modelcontextprotocol/inspector uv run kzmshx-youtube-mcp
