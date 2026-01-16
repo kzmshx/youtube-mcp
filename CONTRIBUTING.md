@@ -4,8 +4,8 @@
 
 ```bash
 # Clone and install
-git clone https://github.com/kzmshx/youtube-mcp.git
-cd youtube-mcp
+git clone https://github.com/kzmshx/kzmshx-youtube-mcp.git
+cd kzmshx-youtube-mcp
 uv sync
 ```
 

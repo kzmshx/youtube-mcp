@@ -1,4 +1,4 @@
-# youtube-mcp
+# kzmshx-youtube-mcp
 
 An MCP server for extracting YouTube video transcripts and metadata.
 
@@ -9,7 +9,7 @@ An MCP server for extracting YouTube video transcripts and metadata.
   "mcpServers": {
     "youtube": {
       "command": "uvx",
-      "args": ["youtube-mcp"]
+      "args": ["kzmshx-youtube-mcp"]
     }
   }
 }
@@ -20,9 +20,9 @@ An MCP server for extracting YouTube video transcripts and metadata.
 If you prefer to install globally:
 
 ```bash
-pip install youtube-mcp
+pip install kzmshx-youtube-mcp
 # or
-uv tool install youtube-mcp
+uv tool install kzmshx-youtube-mcp
 ```
 
 ## Tools

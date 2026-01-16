@@ -1,5 +1,5 @@
 [project]
-name = "youtube-mcp"
+name = "kzmshx-youtube-mcp"
 version = "0.1.0"
 description = "MCP server for extracting YouTube video transcripts and metadata"
 authors = [{ name = "kzmshx" }]
@@ -13,7 +13,7 @@ dependencies = [
 ]
 
 [project.scripts]
-youtube-mcp = "youtube_mcp.server:main"
+kzmshx-youtube-mcp = "youtube_mcp.server:main"
 
 [project.urls]
 Homepage = "https://github.com/kzmshx/youtube-mcp"
