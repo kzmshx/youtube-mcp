@@ -1,6 +1,6 @@
 [project]
 name = "kzmshx-youtube-mcp"
-version = "0.1.0"
+version = "0.1.1"
 description = "MCP server for extracting YouTube video transcripts and metadata"
 authors = [{ name = "kzmshx" }]
 license = { file = "LICENSE" }
