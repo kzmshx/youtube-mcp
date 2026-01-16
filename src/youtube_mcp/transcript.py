@@ -39,12 +39,8 @@ def get_transcript(
     # Get available transcripts
     transcript_list = api.list(video_id)
 
-    # Determine language priority
-    if language == "auto":
-        # Try English first, then Japanese, then any available
-        preferred_languages = ["en", "ja"]
-    else:
-        preferred_languages = [language, "en"]
+    # Determine language priority (English first, then Japanese for auto; otherwise specified + English)
+    preferred_languages = ["en", "ja"] if language == "auto" else [language, "en"]
 
     # Find transcript
     transcript = None

@@ -19,3 +19,7 @@ test: ## Run all tests
 .PHONY: typecheck
 typecheck: ## Run type checker
 	uv run mypy src
+
+.PHONY: dev
+dev: ## Launch MCP Inspector for interactive debugging
+	npx @modelcontextprotocol/inspector uv run youtube-mcp

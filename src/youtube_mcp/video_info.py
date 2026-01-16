@@ -40,9 +40,7 @@ def get_video_info(url: str) -> dict[str, Any]:
             # Collect available subtitle languages
             subtitles = info.get("subtitles", {})
             automatic_captions = info.get("automatic_captions", {})
-            available_languages = sorted(
-                set(subtitles.keys()) | set(automatic_captions.keys())
-            )
+            available_languages = sorted(set(subtitles.keys()) | set(automatic_captions.keys()))
 
             return {
                 "id": video_id,
