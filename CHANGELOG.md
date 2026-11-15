@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.4](https://github.com/kzmshx/youtube-mcp/compare/v0.1.3...v0.1.4) (2026-11-15)
+
+
+### Bug Fixes
+
+* **deps:** bump the weekly group with 5 updates ([#14](https://github.com/kzmshx/youtube-mcp/issues/14)) ([d7d1e0e](https://github.com/kzmshx/youtube-mcp/commit/d7d1e0e53b4371e8719c1e1232ef332fd7cfda02))
+
 ## [0.1.3](https://github.com/kzmshx/youtube-mcp/compare/v0.1.2...v0.1.3) (2026-11-15)
 
 
