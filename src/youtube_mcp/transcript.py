@@ -2,8 +2,7 @@
 
 from typing import Any
 
-from youtube_transcript_api import YouTubeTranscriptApi
-from youtube_transcript_api._errors import NoTranscriptFound
+from youtube_transcript_api import NoTranscriptFound, YouTubeTranscriptApi
 
 from youtube_mcp.url import extract_video_id
 
