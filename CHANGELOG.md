@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.3](https://github.com/kzmshx/youtube-mcp/compare/v0.1.2...v0.1.3) (2026-11-15)
+
+
+### Bug Fixes
+
+* **deps:** bump fastmcp from 3.4.11 to 4.1.8 ([#11](https://github.com/kzmshx/youtube-mcp/issues/11)) ([299caab](https://github.com/kzmshx/youtube-mcp/commit/299caaba5c9d66e82fdc0f0c4b46b42a7f047194))
+
 ## [0.1.2](https://github.com/kzmshx/youtube-mcp/compare/v0.1.1...v0.1.2) (2026-11-15)
 
 
