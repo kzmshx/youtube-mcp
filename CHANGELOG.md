@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.0](https://github.com/kzmshx/youtube-mcp/compare/v0.1.4...v0.2.0) (2026-11-23)
+
+
+### Features
+
+* add search_videos tool ([#16](https://github.com/kzmshx/youtube-mcp/issues/16)) ([83d7fac](https://github.com/kzmshx/youtube-mcp/commit/83d7facbced608185bc10d8a81c05d4148111bf3))
+
 ## [0.1.4](https://github.com/kzmshx/youtube-mcp/compare/v0.1.3...v0.1.4) (2026-11-15)
 
 
