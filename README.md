@@ -78,6 +78,40 @@ Get metadata from a YouTube video.
 }
 ```
 
+### search_videos
+
+Search YouTube videos by keyword. No API key is needed.
+
+| Parameter     | Type   | Description                             |
+| ------------- | ------ | --------------------------------------- |
+| `query`       | string | Search keywords                         |
+| `max_results` | int    | Number of videos, 1-50 (default: 10)    |
+| `language`    | string | Interface language code (default: `en`) |
+
+YouTube machine-translates titles into `language`. Pass the language of the videos you are looking for to get their original titles.
+
+**Example:**
+
+```json
+// Input
+{ "query": "rick astley", "max_results": 1 }
+
+// Output
+{
+  "query": "rick astley",
+  "videos": [
+    {
+      "id": "dQw4w9WgXcQ",
+      "title": "Rick Astley - Never Gonna Give You Up",
+      "channel": "Rick Astley",
+      "duration": 213,
+      "view_count": 1500000000,
+      "url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+    }
+  ]
+}
+```
+
 ## License
 
 MIT

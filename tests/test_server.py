@@ -19,6 +19,7 @@ from youtube_transcript_api import (
     YouTubeTranscriptApi,
 )
 
+import youtube_mcp.search as search_module
 import youtube_mcp.transcript as transcript_module
 import youtube_mcp.video_info as video_info_module
 from youtube_mcp.server import mcp
@@ -46,9 +47,10 @@ class TestTools:
     async def test_list_tools(self) -> None:
         async with Client(mcp) as client:
             tools = {t.name: t for t in await client.list_tools()}
-        assert set(tools) == {"get_transcript", "get_video_info"}
+        assert set(tools) == {"get_transcript", "get_video_info", "search_videos"}
         assert "url" in tools["get_transcript"].inputSchema["properties"]
         assert "url" in tools["get_video_info"].inputSchema["properties"]
+        assert "query" in tools["search_videos"].inputSchema["properties"]
 
     async def test_get_transcript(self, monkeypatch: pytest.MonkeyPatch) -> None:
         snippets = [FetchedTranscriptSnippet(text="hello", start=0.0, duration=1.0)]
@@ -108,3 +110,45 @@ class TestTools:
             result = await client.call_tool("get_video_info", {"url": VIDEO_ID})
         assert result.data["upload_date"] == "2025-01-01"
         assert result.data["available_languages"] == ["en", "ja"]
+
+    async def test_search_videos(self, monkeypatch: pytest.MonkeyPatch) -> None:
+        seen: dict[str, Any] = {}
+
+        class FakeYDL:
+            def __init__(self, opts: dict[str, Any]) -> None:
+                seen["opts"] = opts
+
+            def __enter__(self) -> "FakeYDL":
+                return self
+
+            def __exit__(self, *args: object) -> None:
+                pass
+
+            def extract_info(self, url: str, download: bool) -> dict[str, Any]:
+                seen["url"] = url
+                return {
+                    "entries": [
+                        {"id": VIDEO_ID, "title": "t", "channel": "c", "duration": 1, "view_count": 2, "url": None},
+                        None,
+                    ]
+                }
+
+        monkeypatch.setattr(search_module.yt_dlp, "YoutubeDL", FakeYDL)
+        async with Client(mcp) as client:
+            result = await client.call_tool("search_videos", {"query": "q", "max_results": 99, "language": "ja"})
+        assert seen["url"] == "ytsearch50:q"  # max_results is capped
+        assert seen["opts"]["extract_flat"] is True
+        assert seen["opts"]["extractor_args"] == {"youtube": {"lang": ["ja"]}}
+        assert result.data == {
+            "query": "q",
+            "videos": [
+                {
+                    "id": VIDEO_ID,
+                    "title": "t",
+                    "channel": "c",
+                    "duration": 1,
+                    "view_count": 2,
+                    "url": f"https://www.youtube.com/watch?v={VIDEO_ID}",
+                }
+            ],
+        }
